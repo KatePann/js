@@ -1,0 +1,166 @@
+/*обнуляющий css*/
+
+*{
+  padding: 0; /*внутренние отступы*/
+  margin: 0; /*внешние отступы*/
+  border: 0;
+}
+
+*,*::before,::after{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+} /*тут меняем ширину блока, чтобы удобнее верстать*/
+
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+/*меняем линии обводки у некоторых браузеров*/
+
+nav,footer,header,aside{display: block;}/*делаем эти теги блочными, т.е. занимают всю страницу по ширине*/
+
+html,body{
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}/*уравниваем поведение шрифтов и элементов в разных браузерах*/
+
+input,button,textarea{font-family: inherit;}/*просим эти теги наследовать семейство шрифта*/
+
+input::-ms-clear{display: none;}/*убирает крестик в инпуте в интернет эксплорер*/
+button{cursor: pointer;}
+button::-moz-focus-inner{padding:0; border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 400;}/*обнуляем все заголовки*/
+/*---------------------------------*/
+html {
+  box-sizing: border-box;  /* паддинги не будут изменять ширину блока */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; /* inherit-наследовать параметры от родителя */
+}
+
+body {
+ background-color: rgb(237, 241, 248);
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ padding: 30px;
+ font-size: 18px;
+}
+
+.title{
+  color: rgba(47, 70, 175, 0.15);
+  font-size: 90px;
+  padding: 20px;
+  
+}
+
+form{
+  border: 1px solid rgb(145, 179, 235);
+  padding: 4px 20px 4px 24px;
+  width: 400px;
+  margin: 0 0 25px 0;
+  height: 50px;
+  background-color:rgb(195, 201, 211);
+}
+
+input[type="text"]{
+  border: none;
+  margin: 0;
+  /* outline: none;
+  -webkit-appearance: none; */
+  height: 40px;
+  vertical-align: top;
+  background-color:rgb(195, 201, 211);
+  color: rgb(68, 78, 95);
+  font-size: 18px;
+  padding: 0 8px 0 0;
+  width: 300px;
+}
+
+button[type="submit"]{
+  border: none;
+  margin-top: 5px;
+  font-size: 40px;
+  line-height: 30px;
+  background-color:rgb(195, 201, 211);
+  color: rgb(68, 78, 95);
+  cursor: pointer;
+  transition: color .2s;}
+
+input::-webkit-input-placeholder {
+  color:#91a3dd;
+  font-size: 20px;
+  padding-left: 40px;
+}
+ 
+.todo__task{
+  display: flex;
+  align-items: center;
+}
+
+.todo__task:hover .todo__task-del{
+display: block;
+}
+
+.todo__checkbox{
+margin-right: 16px;
+}
+
+.todo__checkbox input{
+display: none;
+}
+
+.todo__checkbox input:checked + div{
+background-color: rgb(195, 201, 211);
+}
+
+.todo__checkbox input:checked + div::after{
+display: block;
+  }
+
+.todo__checkbox div{
+cursor: pointer;
+height: 28px;
+width: 28px;
+border: 1px solid rgb(145, 179, 235);;
+position: relative;
+}
+
+.todo__checkbox div::after{
+  content: '✓';
+  color: rgb(68, 78, 95);
+  font-size: 27px;
+  text-align: center;
+  display: none;
+  position:absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.todo__task-text{
+  font-size: 27px;
+  color: rgb(68, 78, 95);
+}
+
+.todo__task-del{
+  margin-left: auto;
+  margin-right: 0;
+  display: none ;
+  cursor: pointer;
+  text-align: center;
+  font-size: 27px;
+  color: rgb(68, 78, 95);
+}
