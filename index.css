@@ -120,6 +120,11 @@ input::-webkit-input-placeholder {
 display: block;
 }
 
+.todo__task_complete .todo__task-text{
+  text-decoration: line-through;
+  color: rgb(115, 121, 131);
+}
+
 .todo__checkbox{
 margin-right: 16px;
 }
