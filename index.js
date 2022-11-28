@@ -2,7 +2,7 @@ const form = document.querySelector('#form');
 const newTask = document.querySelector('#new');
 const btn =  document.querySelector('#add');
 const tasks = document.querySelector('#tasks');
-const count = document.querySelector('#count');
+
 
 
 let todoList = [];
@@ -57,12 +57,14 @@ tasks.addEventListener('click', function (event) {
       const task = target.parentElement.parentElement
       const taskId = task.getAttribute('id')
       changeTaskStatus(taskId, todoList);
+      messages()
     }
     
     if(isDeleteEl){
       const task = target.parentElement
       const taskId = task.getAttribute('id')
       deleteTask(taskId, todoList)
+      messages()
     }
 })
 
@@ -83,3 +85,12 @@ function deleteTask(id, list) {
     })
 }
 
+//редактирование задачи
+tasks.addEventListener('dblclick', (e) => {
+    if (e.target.textContent) {
+        const newText = prompt();
+      e.target.textContent = newText;
+    }
+  });
+
+  //фильтры
