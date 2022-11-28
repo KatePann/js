@@ -7,10 +7,10 @@ const count = document.querySelector('#count');
 
 let todoList = [];
 
-// if (localStorage.getItem('todo')) {
-//     todoList = JSON.parse(localStorage.getItem('todo'))
-//     addTask();
-// }
+if (localStorage.getItem('todo')) {
+    todoList = JSON.parse(localStorage.getItem('todo'))
+    messages();
+}
 
 btn.addEventListener('click', function(){
     let newTodo = {
@@ -21,7 +21,7 @@ btn.addEventListener('click', function(){
     todoList.push(newTodo);
     newTask.value='';
     messages();
-    // localStorage.setItem('todo', JSON.stringify(todoList));
+    localStorage.setItem('todo', JSON.stringify(todoList));
 })
 
 //добавление задачи
@@ -57,8 +57,8 @@ tasks.addEventListener('click', function (event) {
       const task = target.parentElement.parentElement
       const taskId = task.getAttribute('id')
       changeTaskStatus(taskId, todoList);
-     
     }
+    
     if(isDeleteEl){
       const task = target.parentElement
       const taskId = task.getAttribute('id')
