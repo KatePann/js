@@ -2,6 +2,8 @@ const form = document.querySelector('#form');
 const newTask = document.querySelector('#new');
 const btn =  document.querySelector('#add');
 const tasks = document.querySelector('#tasks');
+const pendingNum = document.querySelector('.pending__num')
+const clearButton = document.querySelector('.clear__button')
 
 
 
@@ -9,6 +11,10 @@ let todoList = [];
 
 if (localStorage.getItem('todo')) {
     todoList = JSON.parse(localStorage.getItem('todo'))
+    messages();
+}
+if (localStorage.getItem('change')) {
+    todoList = JSON.parse(localStorage.getItem('change'))
     messages();
 }
 
@@ -34,7 +40,7 @@ function messages() {
         const checked = item.checked ? 'checked' : '';
 
         addTask += `
-            <div id='${item.id}' class="${cls}">
+            <div id='${item.id}' class="${cls} pending">
                 <label class="todo__checkbox">
                     <input type="checkbox" ${checked}>
                     <div class="todo__checkbox-div"></div>
@@ -44,6 +50,7 @@ function messages() {
             </div>
         `;
         tasks.innerHTML = addTask;
+        allTasks()
     })
 }
 //изменение статуса задачи
@@ -64,8 +71,9 @@ tasks.addEventListener('click', function (event) {
       const task = target.parentElement
       const taskId = task.getAttribute('id')
       deleteTask(taskId, todoList)
-      messages()
     }
+      messages()
+      localStorage.setItem('change', JSON.stringify(todoList));
 })
 
 function changeTaskStatus(id, list) {
@@ -93,4 +101,13 @@ tasks.addEventListener('dblclick', (e) => {
     }
   });
 
-  //фильтры
+  //инфо
+  function allTasks() {
+    let tasks = document.querySelectorAll('.pending')
+    pendingNum.textContent = tasks.length === 0 ? 'no' : tasks.length
+  }
+
+  clearButton.addEventListener('click', ()=>{
+    tasks.innerHTML=''
+    allTasks()
+  })

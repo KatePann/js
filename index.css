@@ -145,7 +145,7 @@ display: block;
 cursor: pointer;
 height: 28px;
 width: 28px;
-border: 1px solid rgb(145, 179, 235);;
+border: 1px solid rgb(145, 179, 235);
 position: relative;
 }
 
@@ -178,3 +178,29 @@ position: relative;
 }
 
 /* tasks styles end */
+
+/* info styles end */
+.todo .pending__tasks{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.pending__tasks span{
+color: rgb(115, 121, 131);
+font-size: 15px;
+}
+
+.pending__tasks .clear__button{
+padding: 6px 12px;
+color: rgb(115, 121, 131);
+font-size: 15px;
+cursor: pointer;
+}
+
+.clear__button:hover{
+  color: rgb(56, 65, 80);
+}
+
+/* info styles end */
