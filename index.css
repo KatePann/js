@@ -199,6 +199,14 @@ font-size: 15px;
 cursor: pointer;
 }
 
+.pending__tasks .filter__todo{
+  padding: 6px 12px;
+  color: rgb(115, 121, 131);
+  font-size: 15px;
+  cursor: pointer;
+  border: .5px solid rgb(115, 121, 131);
+  }
+
 .clear__button:hover{
   color: rgb(56, 65, 80);
 }
